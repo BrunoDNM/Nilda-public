@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use the Sistema Nilda research software or results, please cite this software release."
+title: "Sistema Nilda: monitoramento de trajetórias e avaliação preliminar de classificadores"
+type: software
+authors:
+  - name: "BrunoDNM"
+version: "1.0.0"
+abstract: "Research code and experimental artifacts for preliminary assessment of synthetic wandering trajectories and UWB ranging; includes original NewCare and MiniCare INT8 models."
+keywords:
+  - "Alzheimer disease"
+  - "wandering"
+  - "UWB"
+  - "machine learning"
+  - "assistive technologies"

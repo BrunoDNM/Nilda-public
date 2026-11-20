@@ -1,0 +1,162 @@
+{
+  "environment": {
+    "python": "3.12.14",
+    "machine": "x86_64",
+    "packages": {
+      "tensorflow-cpu": "2.21.0",
+      "keras": "3.15.1",
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "scikit-learn": "1.6.1",
+      "scikit-image": "0.26.0",
+      "joblib": "1.6.0",
+      "pillow": "13.0.0"
+    }
+  },
+  "inputs": {
+    "evaluation_data": {
+      "filename": "dataset-validacao.json",
+      "sha256": "afac7512dfd3903bb87ec006da20937591b699a5eecee7377b7825ae1360bc75"
+    },
+    "feature_scaler": {
+      "filename": "feature_scaler.save",
+      "sha256": "64688ba1c79f009ea9ffdaaf30c42c636ba2800e3ceabd5356a37fbbfdc85336"
+    },
+    "newcare_h5": {
+      "filename": "modelCNN-multi-1784648730.h5",
+      "sha256": "92d595e2adcbf39c951509fcfa42f4971d47d866ed4f5c67261fe814df12c941"
+    },
+    "minicare_tflite_int8": {
+      "filename": "modelCNN-minicare-int8.tflite",
+      "sha256": "3644b03d92ee446514c2df052c8285d7107a1fd33c3551e49ac1b9933cbd821a"
+    }
+  },
+  "session_counts": {
+    "positive": 10,
+    "negative": 10
+  },
+  "positive_if_strictly_greater_than": 0.5,
+  "interval_method": "Clopper-Pearson 97.5% por taxa e projeção Bonferroni, 95% por modelo",
+  "model_parameters": {
+    "newcare_h5": 26605
+  },
+  "tflite_tensors": {
+    "minicare_tflite_int8": {
+      "image": {
+        "shape": [
+          1,
+          64,
+          64,
+          1
+        ],
+        "dtype": "uint8",
+        "scale": 0.0035866687539964914,
+        "zero_point": 0
+      },
+      "features": {
+        "shape": [
+          1,
+          4
+        ],
+        "dtype": "uint8",
+        "scale": 0.013695535250008106,
+        "zero_point": 118
+      },
+      "output": {
+        "shape": [
+          1,
+          1
+        ],
+        "dtype": "uint8",
+        "scale": 0.00390625,
+        "zero_point": 0
+      }
+    }
+  },
+  "results": {
+    "newcare_h5": {
+      "confusion": {
+        "tp": 9,
+        "fn": 1,
+        "fp": 0,
+        "tn": 10
+      },
+      "metrics": {
+        "accuracy": {
+          "estimate": 0.95,
+          "ci95": [
+            0.5772794530963149,
+            0.9993714562881816
+          ]
+        },
+        "precision": {
+          "estimate": 1.0,
+          "ci95": [
+            0.5894263317220284,
+            1.0
+          ]
+        },
+        "recall": {
+          "estimate": 0.9,
+          "ci95": [
+            0.5093638940444761,
+            0.9987429125763632
+          ]
+        },
+        "f1": {
+          "estimate": 0.9473684210526316,
+          "ci95": [
+            0.5464782713531047,
+            0.9993710609725108
+          ]
+        }
+      },
+      "confidence": {
+        "true_positives_mean": 0.8713214132520888,
+        "errors_mean": 0.9477684386074543
+      }
+    },
+    "minicare_tflite_int8": {
+      "confusion": {
+        "tp": 8,
+        "fn": 2,
+        "fp": 0,
+        "tn": 10
+      },
+      "metrics": {
+        "accuracy": {
+          "estimate": 0.9,
+          "ci95": [
+            0.5230779993469454,
+            0.9912691993518862
+          ]
+        },
+        "precision": {
+          "estimate": 1.0,
+          "ci95": [
+            0.5305359067869398,
+            1.0
+          ]
+        },
+        "recall": {
+          "estimate": 0.8,
+          "ci95": [
+            0.4009609865457371,
+            0.9825383987037724
+          ]
+        },
+        "f1": {
+          "estimate": 0.8888888888888891,
+          "ci95": [
+            0.45673625345577146,
+            0.9911923010885215
+          ]
+        }
+      },
+      "confidence": {
+        "true_positives_mean": 0.69677734375,
+        "errors_mean": 0.509765625
+      }
+    }
+  }
+}
